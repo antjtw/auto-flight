@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================
+   AutoFlight theme — light + dark
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter+Tight:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ----- Source palette: Iron Oxide, Slate Navy, Neutral Grey, Sage Green, Soft Rose ----- */
+
+  --iron-10:   #FEF7F4;
+  --iron-50:   #F9EDE7;
+  --iron-100:  #F3D4C6;
+  --iron-200:  #EBB79D;
+  --iron-300:  #E09774;
+  --iron-500:  #C55432;
+  --iron-600:  #AA482C;
+  --iron-700:  #8B3C25;
+  --iron-800:  #6A2F1E;
+
+  --slate-10:  #F6F8FA;
+  --slate-50:  #E8EDF2;
+  --slate-100: #C9D4E0;
+  --slate-200: #A7B9CC;
+  --slate-300: #849EB7;
+  --slate-500: #45698B;
+  --slate-600: #32526F;
+  --slate-700: #203F5B;
+  --slate-800: #152C41;
+
+  --grey-10:   #F7F8F8;
+  --grey-50:   #F2F3F3;
+  --grey-100:  #DCDDDE;
+  --grey-200:  #C5C7C8;
+  --grey-300:  #AEB1B2;
+  --grey-400:  #979A9B;
+  --grey-500:  #7F8283;
+  --grey-600:  #6B6D6E;
+  --grey-700:  #585A5B;
+  --grey-800:  #3E4041;
+  --grey-900:  #242525;
+  --grey-950:  #131414;
+
+  --sage-50:   #E8F6EB;
+  --sage-300:  #A8D9B4;
+  --sage-700:  #3D724E;
+
+  --rose-50:   #FCEAEA;
+  --rose-200:  #F6D6D6;
+  --rose-500:  #CF7174;
+  --rose-700:  #A54848;
+  --rose-800:  #7C3535;
+
+  /* ----- Semantic tokens (light theme defaults) ----- */
+
+  /* Surfaces */
+  --bg-page:    var(--grey-50);
+  --bg-card:    #FFFFFF;
+  --bg-subtle:  var(--grey-100);
+  --bg-muted:   var(--grey-200);
+  --bg-paper:   var(--iron-10);   /* warm cream for the order document */
+
+  /* Text */
+  --text-default:         var(--grey-900);
+  --text-subdued:         var(--grey-600);
+  --text-disabled:        var(--grey-300);
+  --text-on-dark:         #F7F8F8;
+  --text-on-dark-subdued: var(--grey-200);
+  --text-on-accent:       #FFFFFF;
+
+  /* Borders */
+  --border-default: var(--grey-100);
+  --border-strong:  var(--grey-300);
+  --border-on-dark: rgba(255, 255, 255, 0.16);
+
+  /* Brand: Slate Navy — structural dark, secondary actions, hierarchy markers */
+  --brand:         var(--slate-700);
+  --brand-hover:   var(--slate-600);
+  --brand-pressed: var(--slate-800);
+  --brand-light:   var(--slate-500);
+  --brand-tint:    var(--slate-100);
+  --brand-bg-soft: var(--slate-50);
+
+  /* Accent: Iron Oxide — now in brand position. Top bar, day blocks, CTA. */
+  --accent:         var(--iron-500);
+  --accent-hover:   var(--iron-600);
+  --accent-pressed: var(--iron-700);
+  --accent-deep:    var(--iron-800);
+  --accent-light:   var(--iron-300);
+  --accent-tint:    var(--iron-100);
+  --accent-bg-soft: var(--iron-50);
+  --accent-faint:   var(--iron-10);
+
+  /* Status tokens */
+  --warning-bg:     var(--iron-50);
+  --warning-border: var(--iron-300);
+  --warning-text:   var(--iron-800);
+
+  --danger-bg:     var(--rose-50);
+  --danger-border: var(--rose-500);
+  --danger-text:   var(--rose-800);
+
+  --success-bg:     var(--sage-50);
+  --success-border: var(--sage-300);
+  --success-text:   var(--sage-700);
+
+  /* Shadows */
+  --shadow-card: 0 1px 2px rgba(36, 37, 37, 0.04), 0 1px 1px rgba(36, 37, 37, 0.02);
+  --shadow-pop:  0 4px 12px rgba(36, 37, 37, 0.08);
+}
+
+/* ----- Dark theme ----- */
+/* Applied either by data-theme="dark" on <html> or by system preference. */
+
+:root[data-theme="dark"] {
+  /* Surfaces — slate-leaning rather than pure black */
+  --bg-page:    var(--grey-950);
+  --bg-card:    var(--slate-800);
+  --bg-subtle:  var(--slate-700);
+  --bg-muted:   var(--slate-600);
+  --bg-paper:   #1B2330;          /* a touch warmer than --bg-card, but still cool */
+
+  /* Text */
+  --text-default:         var(--grey-100);
+  --text-subdued:         var(--grey-400);
+  --text-disabled:        var(--grey-700);
+  --text-on-dark:         #F7F8F8;
+  --text-on-dark-subdued: var(--grey-300);
+  --text-on-accent:       #FFFFFF;
+
+  /* Borders */
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-strong:  rgba(255, 255, 255, 0.18);
+  --border-on-dark: rgba(255, 255, 255, 0.16);
+
+  /* Brand — one step lighter for interactive surfaces */
+  --brand:         var(--slate-600);
+  --brand-hover:   var(--slate-500);
+  --brand-pressed: var(--slate-700);
+  --brand-light:   var(--slate-300);
+  --brand-tint:    var(--slate-700);
+  --brand-bg-soft: var(--slate-800);
+
+  /* Accent — Iron 600 default; one step lighter on hover */
+  --accent:         var(--iron-600);
+  --accent-hover:   var(--iron-500);
+  --accent-pressed: var(--iron-700);
+  --accent-deep:    var(--iron-800);
+  --accent-light:   var(--iron-300);
+  --accent-tint:    var(--iron-800);
+  --accent-bg-soft: rgba(197, 84, 50, 0.12);
+  --accent-faint:   rgba(197, 84, 50, 0.06);
+
+  /* Status — desaturated for dark backgrounds */
+  --warning-bg:     rgba(224, 151, 116, 0.12);
+  --warning-border: var(--iron-300);
+  --warning-text:   var(--iron-200);
+
+  --danger-bg:     rgba(207, 113, 116, 0.12);
+  --danger-border: var(--rose-500);
+  --danger-text:   var(--rose-200);
+
+  --success-bg:     rgba(168, 217, 180, 0.12);
+  --success-border: var(--sage-300);
+  --success-text:   var(--sage-300);
+
+  /* Shadows — softer in dark mode */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
+  --shadow-pop:  0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Auto-dark if the user prefers it and hasn't manually chosen a theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --bg-page:    var(--grey-950);
+    --bg-card:    var(--slate-800);
+    --bg-subtle:  var(--slate-700);
+    --bg-muted:   var(--slate-600);
+    --bg-paper:   #1B2330;
+
+    --text-default:         var(--grey-100);
+    --text-subdued:         var(--grey-400);
+    --text-disabled:        var(--grey-700);
+
+    --border-default: rgba(255, 255, 255, 0.08);
+    --border-strong:  rgba(255, 255, 255, 0.18);
+
+    --brand:         var(--slate-600);
+    --brand-hover:   var(--slate-500);
+    --brand-pressed: var(--slate-700);
+    --brand-light:   var(--slate-300);
+    --brand-tint:    var(--slate-700);
+    --brand-bg-soft: var(--slate-800);
+
+    --accent:         var(--iron-600);
+    --accent-hover:   var(--iron-500);
+    --accent-pressed: var(--iron-700);
+    --accent-light:   var(--iron-300);
+    --accent-tint:    var(--iron-800);
+    --accent-bg-soft: rgba(197, 84, 50, 0.12);
+    --accent-faint:   rgba(197, 84, 50, 0.06);
+
+    --warning-bg:     rgba(224, 151, 116, 0.12);
+    --warning-text:   var(--iron-200);
+
+    --danger-bg:     rgba(207, 113, 116, 0.12);
+    --danger-text:   var(--rose-200);
+
+    --success-bg:     rgba(168, 217, 180, 0.12);
+    --success-text:   var(--sage-300);
+
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
+    --shadow-pop:  0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ----- Typography ----- */
+
+.font-serif { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; }
+
+body, html, .font-sans {
+  font-family: 'Inter Tight', system-ui, sans-serif;
+}
+
+/* A heavy, condensed treatment for the AutoFlight wordmark and big headings. */
+.wordmark {
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-stretch: 75%;
+}
+
+/* ----- Print stylesheet ----- */
+
+@media print {
+  @page { size: A4; margin: 14mm; }
+  body { background: white !important; }
+  .no-print { display: none !important; }
+  .print-area {
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+  .print-area .grid { display: block !important; }
+  .print-area table { page-break-inside: avoid; }
+  .flight-block { page-break-inside: avoid; break-inside: avoid; margin-bottom: 16px; }
+  .session-block { page-break-inside: auto; }
+  .session-header { page-break-after: avoid; }
+  .day-block { break-before: page; page-break-before: always; }
+  .day-block:first-child { break-before: auto; page-break-before: auto; }
+  .ig-link { color: #999 !important; text-decoration: none !important; }
+}
+
+.ig-link { text-decoration: none; }
